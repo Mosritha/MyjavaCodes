@@ -1,0 +1,13 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) { // nums[] = {2,7,11,15} target = 9
+        HashMap<Integer,Integer> map = new HashMap<>(); //create HashMap 
+        for(int i=0;i<nums.length;i++){
+            int compliment = target - nums[i];  // differenece between target value and nums[i] and storing in variable called compliment  1.9-2 = 7 2.9-7=2
+            if(map.containsKey(compliment)){    // checking whether compliment exist or not in map 1.compliment does not exist 2. 2 is exist already
+                return new int[]{map.get(compliment),i};  // if yes then we found pair  2.founded pair compliement value is (0,1) here 0 is value of compliment key and 1 is current i value.
+            }
+            map.put(nums[i],i);  // if not add it in map 1.7 does not in map adding->(2,0)
+        }
+        return new int[]{};
+    }
+}
